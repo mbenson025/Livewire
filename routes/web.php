@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Mail\ContactFormMailable;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::post('/contact', function (Request $request) {
-    $contact = request->validate([
+    $contact = $request->validate([
         'name' => 'required',
         'email' => 'required|email',
         'phone' => 'required',

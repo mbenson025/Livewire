@@ -13,6 +13,18 @@ class ContactForm extends Component
     public $phone;
     public $message;
 
+    public function submitForm()
+    {
+
+
+        $contact['name'] = $this->name;
+        $contact['email'] = $this->email;
+        $contact['phone'] = $this->phone;
+        $contact['message'] = $this->message;
+
+        Mail::to('test@test.com')->send(new ContactFormMailable($contact));
+    }
+
 
     public function render()
     {
