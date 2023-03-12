@@ -12,6 +12,7 @@ class ContactForm extends Component
     public $email;
     public $phone;
     public $message;
+    public $successMessage;
 
     public function submitForm()
     {
@@ -25,7 +26,7 @@ class ContactForm extends Component
         // Need $this to call resetForm in an instance
         $this->resetForm();
 
-        session()->flash('success_message')
+        $this->successMessage = 'Message received';
     }
 
 
