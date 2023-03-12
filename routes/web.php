@@ -20,15 +20,15 @@ Route::get('/', function () {
     return view('examples');
 });
 
-Route::post('/contact', function (Request $request) {
-    $contact = $request->validate([
-        'name' => 'required',
-        'email' => 'required|email',
-        'phone' => 'required',
-        'message' => 'required',
-    ]);
+// Route::post('/contact', function (Request $request) {
+//     $contact = $request->validate([
+//         'name' => 'required',
+//         'email' => 'required|email',
+//         'phone' => 'required',
+//         'message' => 'required',
+//     ]);
 
-    Mail::to('test@test.com')->send(new ContactFormMailable($contact));
+//     Mail::to('test@test.com')->send(new ContactFormMailable($contact));
 
-    return back()->with('success_message', 'Message received successfully');
-});
+//     return back()->with('success_message', 'Message received successfully');
+// });
