@@ -12,13 +12,19 @@ class SearchDropdown extends Component
 
     public function updatedSearch($newValue)
     {
+        if (strlen($this->search) < 3) {
+            $this->searchResults = [];
+
+            return;
+        }
+
         $response = Http::get('https://itunes.apple.com/search/?term=' . $this->search . '&limit=10');
 
         // dd($response->json());
 
         $this->searchResults = $response->json()['results'];
 
-        dump($this->searchResults);
+        // dump($this->searchResults);
     }
 
 
